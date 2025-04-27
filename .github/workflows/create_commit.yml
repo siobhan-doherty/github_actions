@@ -9,6 +9,12 @@ jobs:
       contents: write
     
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Install pytest
+        run: pip install pytest
+
       - name: Push a file to our repository
         run: |
           pwd
