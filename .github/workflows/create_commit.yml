@@ -19,14 +19,13 @@ jobs:
         run: |
           pwd
           ls -a 
-          git init
-          git remote add origin "https://$GITHUB_ACTOR:${{ secrets.CI_PUSH_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" 
+          git remote set-url origin "https://$GITHUB_ACTOR:${{ secrets.CI_PUSH_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" 
           git config --global user.email "my-bot@bot.com"
           git config --global user.name "my-bot"
-          git fetch
+          git fetch origin
           git checkout master
           git branch --set-upstream-to=origin/master
-          git pull
+          git pull origin master
           pytest tests/ >> log_pytest.txt
           ls -a
           git add .
