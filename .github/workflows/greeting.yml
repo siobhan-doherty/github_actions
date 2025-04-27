@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      Greeting: Hello ## Environment variable for the job
+      GREETING: Hello ## Environment variable for the job
     
     steps:
       - name: Say Hello Mona it's Monday
